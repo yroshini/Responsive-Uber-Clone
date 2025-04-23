@@ -41,3 +41,11 @@
    ```bash
    git clone https://github.com/yourusername/responsive-uber-clone.git
    cd responsive-uber-clone
+2. **Open the project**
+   Open the index.html file in your browser to view the project.
+## 📝 Acknowledgements
+ ### Bootstrap - For responsive design and UI components.
+
+### Google Maps API - For the map and location features (static).
+
+### Font Awesome - For icons used in the interface.
