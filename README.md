@@ -30,7 +30,7 @@
 
 | Login Page | Footer Section | Mobile View |
 |------------|-----------------|-------------|
-| ![Login](Screenshots/Login-Page.png) | ![Footer](Screenshots/Footer-Section.png) | ![Mobile View](Screenshots/Mobile-View.png) |
+| ![Login](Screenshots/Login-page.png) | ![Footer](Screenshots/Footer-Section.png) | ![Mobile View](Screenshots/Mobile-View.png) |
 
 ---
 
