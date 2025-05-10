@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride with Uber | Request Rides 24/7 | Official Uber Site</title>
+  <link rel="icon"
+    href="https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters:format(jpg)/https://specials-images.forbesimg.com/imageserve/5ed6636cdd5d320006caf841/0x0.jpg">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* uber bar */
+    .nav-link.dropdown-toggle::after {
+      display: none;
+    }
+
+    .arrow i {
+      font-size: 0.75rem;
+    }
+
+    .navbar-1 .nav-link:hover {
+      border-radius: 25px;
+      background-color: rgb(78, 78, 78);
+    }
+
+    .uber-buttons {
+      color: white;
+    }
+
+    .uber-buttons:hover {
+      border: none;
+      background-color: rgb(78, 78, 78);
+      color: white;
+    }
+
+    .col-md-4 img {
+      width: 90%;
+      height: 85%;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #f3f3f3;
+    }
+
+    .card-body .btn:not(.btn-dark) {
+      background-color: white;
+    }
+
+    .card-body .btn:not(.btn-dark):hover {
+      background-color: #d1d2d2;
+    }
+
+    .Suggestions p {
+      font-size: 75%;
+    }
+
+    /* Mobile responsiveness: Stack cards vertically */
+    @media (max-width: 767px) {
+      .col-12 {
+        width: 100% !important;
+        margin-bottom: 20px;
+        /* Add spacing between stacked cards */
+      }
+
+      .col-md-4 {
+        width: 100% !important;
+        /* Ensure each card takes full width */
+      }
+    }
+
+    /* Plan for later */
+    .datetime input {
+      border-radius: 5px;
+      font-size: 16px;
+      padding: 12px;
+      background-color: white;
+      padding-left: 0;
+      width: 50px !important;
+    }
+
+
+    .watch-image {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .icons {
+      font-size: 20px;
+    }
+
+    .benefits-text {
+      font-size: 14px;
+    }
+
+    .benefits-container {
+      overflow-y: auto;
+      max-height: 250px;
+    }
+
+    /* Responsive tweaks for small screens */
+    @media (max-width: 767.98px) {
+      .watch-image {
+        display: none !important;
+      }
+
+      .left-box {
+        height: auto !important;
+        padding: 20px !important;
+      }
+
+      .btn-block {
+        width: 100% !important;
+      }
+
+      h1,
+      h3 {
+        font-size: 24px !important;
+      }
+
+      .form-control {
+        font-size: 16px;
+      }
+    }
+
+
+
+    /* Custom class for desktop */
+    @media (min-width: 992px) {
+      .w-lg-custom-60 {
+        width: 60% !important;
+        /* Add !important to override any other styles */
+      }
+    }
+
+    /* Looking for solutions */
+    .business a {
+      color: white;
+    }
+
+    /* Frequently asked questions */
+    .accordion {
+      font-family: Arial, sans-serif;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+      color: black;
+    }
+
+    .accordion-item a,
+    p {
+      color: black;
+    }
+
+    .accordion-button {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 16px;
+      font-weight: 500;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      outline: none;
+    }
+
+    .accordion-button:focus {
+      background-color: #f1f1f1;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 0 16px 16px 16px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .accordion-content.show {
+      display: block;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* Social buttons - maintain square shape and center icons */
+    .footer button {
+      background-color: black;
+      border: none;
+      border-radius: 8px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .footer button:hover {
+      background-color: #444;
+    }
+
+    /* App store buttons */
+    .app-store-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Privacy links */
+    .privacy a {
+      color: #aeaeae;
+      text-decoration: none;
+    }
+
+    .privacy a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    .english .btn {
+      border-radius: 8px;
+      min-width: 120px;
+      height: 35px;
+      font-size: 16px;
+      color: white;
+      border: none;
+      background-color: black;
+    }
+
+    .english .btn:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Uber nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-4 navbar-1" style="background-color: black;">
+    <a class="navbar-brand " href="#" style="margin-left: 7%;">Uber</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#uberNavbar"
+      aria-controls="uberNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="uberNavbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active mr-3">
+          <a class="nav-link"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=048979ac-9150-4a7a-8661-154360a6b149&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D8032458d-6958-443e-91df-c95ff6e9d786%26previousPath%3D%252Flooking%26uclick_id%3Dff311e6f-e8b2-4bde-91f9-a446354ade15&state=J8TfB48wqDlS603PC9Wel6KbRbYJfprkiOzXBmwqYhU%3D">Ride</a>
+        </li>
+        <li class="nav-item active mr-3">
+          <a class="nav-link"
+            href="https://www.uber.com/in/en/drive/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Drive</a>
+        </li>
+        <li class="nav-item active mr-3">
+          <a class="nav-link"
+            href="https://www.uber.com/in/en/business/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Business</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            About <i class="fa fa-angle-down ml-1"></i>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/about/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">About us</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/about/uber-offerings/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Our
+              offerings</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/about/how-does-uber-work/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">How
+              Uber works</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/about/sustainability/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Sustainability</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/newsroom/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Newsroom</a>
+            <a class="dropdown-item" href="https://investor.uber.com/home/default.aspx">Investor relations</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/autonomous/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Autonomous</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/en-IN/blog/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Blog</a>
+            <a class="dropdown-item"
+              href="https://www.uber.com/in/en/careers/?uclick_id=ff311e6f-e8b2-4bde-91f9-a446354ade15">Careers</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 mr-5">
+        <a href="https://www.uber.com/in/en/ride/"><button type="button" class="btn uber-buttons mr-2 "><i
+              class="fa-solid fa-globe"></i>&nbsp;EN</button></a>
+
+        <a href="https://help.uber.com/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"><button type="button"
+            class="btn uber-buttons mr-2">Help</button></a>
+
+        <a
+          href="https://auth.uber.com/v2/?breeze_init_req_id=e9e77f04-cb31-429d-a413-6bb18ed7cc13&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26previousPath%3D%252Flooking%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=Ab4KRRGIwjkejcQllKdtbSXDX544DbYnw8WB27B8e1Y%3D"><button
+            type="button" class="btn btn-light" style="border-radius: 30px;font-weight: 500;">My account</button></a>
+
+      </form>
+    </div>
+  </nav>
+
+  <!-- Ride nav bar (Positioning kept same as before) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mt-1">
+    <a class="navbar-brand " href="#" style="margin-left: 8%;">
+      <h4><b>Ride</b></h4>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rideNavbar"
+      aria-controls="rideNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rideNavbar" style="margin-left: 45%;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=048979ac-9150-4a7a-8661-154360a6b149&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D8032458d-6958-443e-91df-c95ff6e9d786%26previousPath%3D%252Flooking%26uclick_id%3Dff311e6f-e8b2-4bde-91f9-a446354ade15&state=J8TfB48wqDlS603PC9Wel6KbRbYJfprkiOzXBmwqYhU%3D">Request
+            a ride</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=048979ac-9150-4a7a-8661-154360a6b149&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D8032458d-6958-443e-91df-c95ff6e9d786%26previousPath%3D%252Flooking%26uclick_id%3Dff311e6f-e8b2-4bde-91f9-a446354ade15&state=J8TfB48wqDlS603PC9Wel6KbRbYJfprkiOzXBmwqYhU%3D">Reserve
+            a ride</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=048979ac-9150-4a7a-8661-154360a6b149&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D8032458d-6958-443e-91df-c95ff6e9d786%26previousPath%3D%252Flooking%26uclick_id%3Dff311e6f-e8b2-4bde-91f9-a446354ade15&state=J8TfB48wqDlS603PC9Wel6KbRbYJfprkiOzXBmwqYhU%3D">See
+            prices</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="https://www.uber.com/in/en/ride/ride-options/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">Explore
+            ride options</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="https://www.uber.com/in/en/airports/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">Airport rides</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Request a ride for now -->
+  <div class="container-fluid mb-5">
+    <div class="row mt-5 ml-lg-5 mr-lg-5 request">
+      <!-- Form section -->
+      <div class="col-12 col-lg-5 mt-5 ml-lg-5 form-section d-flex flex-column justify-content-center">
+        <h1 class="display-4 d-none d-sm-block ml-5" style="font-weight: 700; margin-top: 5%;">Request a ride for now or
+          later</h1>
+        <h1 class="h1 d-block d-sm-none" style="font-weight: 700; margin-top: 5%;">Request a ride for now or later</h1>
+
+        <p class="mt-5 ml-5">Add your trip details, hop in, and go.</p>
+        <form>
+          <!-- Location input -->
+          <div class="form-group position-relative ml-lg-5 w-100 w-lg-75">
+            <input type="text" class="form-control shadow-sm px-5 py-4 rounded-3 w-100"
+              style="background-color: #f5f5f5; border: none;" id="location" placeholder="Enter location">
+            <i class="fas fa-circle position-absolute"
+              style="top: 50%; left: 15px; transform: translateY(-50%); color: black; font-size: 10px;"></i>
+            <i class="fas fa-location-arrow position-absolute"
+              style="top: 50%; left: 91%; transform: translateY(-50%); color: black; font-size: 22px;"></i>
+
+            <!-- Vertical line between inputs -->
+            <div class="position-relative w-100 w-lg-75" style="height: 0; z-index: 2;">
+              <div class="position-absolute"
+                style="height: 35px; width: 2px; background-color: rgb(15, 14, 14); left: 19px; top: -10px;"></div>
+            </div>
+          </div>
+
+          <!-- Destination input -->
+          <div class="form-group position-relative mt-3 ml-lg-5 w-100 w-lg-75">
+            <input type="text" class="form-control shadow-sm px-5 py-4 rounded-3 w-100"
+              style="background-color: #f5f5f5; border: none;" id="destination" placeholder="Enter destination">
+            <i class="fas fa-square position-absolute"
+              style="top: 50%; left: 15px; transform: translateY(-50%); color: black; font-size: 10px;"></i>
+          </div>
+
+
+          <!-- Buttons -->
+          <div class="mt-4 ml-5">
+            <button type="button" class="btn btn-lg px-4 mr-3"
+              style="background-color: black;color: white;font-size: 16px;font-weight: 500;">See prices</button>
+            <button type="button" class="btn btn-light btn-lg px-4 d-none d-lg-inline-block"
+              style="background-color: #f1f1f1;color: black; font-size: 16px;font-weight: 500;">
+              Schedule for later
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Image section -->
+      <div class="col-lg-6 ml-lg-5 mt-2  d-none d-lg-block">
+        <img
+          src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_552,w_552/v1683919251/assets/42/a29147-e043-42f9-8544-ecfffe0532e9/original/travel-ilustra.png"
+          alt="vacation image">
+      </div>
+    </div>
+  </div>
+  <!-- suggestions -->
+  <h1 style="font-size: 40px;margin-left: 13%;font-weight: 500;margin-top: 7%;"><b>Suggestions</b></h1>
+  <div class="container mt-5 ">
+    <div class="row">
+
+      <!-- Card 1 -->
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card mb-3" style="background-color: #f3f3f3;">
+          <a style="text-decoration: none; color: black;"
+            href="https://m.uber.com/go/connect/home?marketing_vistor_id=1151e56c-3956-4d4e-bf9a-5af7a796dad3&uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">
+            <div class="row no-gutters">
+              <div class="col-md-8">
+                <div class="card-body Suggestions">
+                  <h5 class="card-title">Courier</h5>
+                  <p class="card-text">Uber makes same-day item delivery easier than ever.</p>
+                  <button type="button" class="btn btn-light" style="border-radius: 20px;">Details</button>
+                </div>
+              </div>
+              <div class="col-md-4 pt-3">
+                <img src="https://cn-geo1.uber.com/static/mobile-content/Courier.png" alt="...">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card mb-3 " style="background-color: #f3f3f3;">
+          <a href="https://m.uber.com/go/home?marketing_vistor_id=1151e56c-3956-4d4e-bf9a-5af7a796dad3&uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"
+            style="text-decoration: none; color: black;">
+            <div class="row no-gutters">
+              <div class="col-md-8">
+                <div class="card-body Suggestions">
+                  <h5 class="card-title">Rentals</h5>
+                  <p class="card-text">Request a trip for a block of time and make multiple stops.</p>
+                  <button type="button" class="btn btn-light" style="border-radius: 20px;">Details</button>
+                </div>
+              </div>
+              <div class="col-md-4 pt-3">
+                <img src="https://mobile-content.uber.com/launch-experience/Hourly2021.png" alt="...">
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card mb-3" style="background-color: #f3f3f3;">
+          <a style="text-decoration: none; color: black;"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=3b503b63-77bd-4e3f-aa71-e60688d16c46&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Fgo%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26previousPathname%3D%252Fgo%252Freserve%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=MD9B4p_kcK23rNONHqhBw2WUj4l1e56B2xEqgCLnO5U%3D">
+            <div class="row no-gutters">
+              <div class="col-md-8">
+                <div class="card-body Suggestions">
+                  <h5 class="card-title">Reserve</h5>
+                  <p class="card-text">Reserve your ride in advance so you can relax on the day of your trip.</p>
+                  <button type="button" class="btn btn-light" style="border-radius: 20px;">Details</button>
+                </div>
+              </div>
+              <div class="col-md-4 pt-3">
+                <img src="https://mobile-content.uber.com/uber_reserve/reserve_clock.png" alt="...">
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card mb-3 " style="background-color: #f3f3f3;">
+          <a style="text-decoration: none; color: black;"
+            href="https://auth.uber.com/v2/?breeze_init_req_id=3b503b63-77bd-4e3f-aa71-e60688d16c46&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Fgo%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26previousPathname%3D%252Fgo%252Freserve%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=MD9B4p_kcK23rNONHqhBw2WUj4l1e56B2xEqgCLnO5U%3D">
+            <div class="row no-gutters">
+              <div class="col-md-8">
+                <div class="card-body Suggestions">
+                  <h5 class="card-title">Ride</h5>
+                  <p class="card-text">Go anywhere with Uber. Request a ride, hop in, and go.</p>
+                  <button type="button" class="btn btn-light" style="border-radius: 20px;">Details</button>
+                </div>
+              </div>
+              <div class="col-md-4 pt-3">
+                <img src="https://mobile-content.uber.com/launch-experience/ride.png" alt="...">
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Plan for later -->
+  <div class="container mt-5">
+    <h1 class="mb-4 text-left "><strong>Plan for later</strong></h1>
+
+    <div class="row ml-lg-1">
+      <!-- Left box -->
+      <div class="col-lg-8 position-relative text-white rounded left-box p-4 mb-4 mb-lg-0"
+        style="background-color:#9dcdd6;">
+        <img
+          src="https://www.uber-assets.com/image/upload/v1709643470/assets/51/52cc71-a5b0-4fbd-aeb8-bee896efcd48/original/image-9.png"
+          alt="watch" class="watch-image d-none d-lg-block">
+
+        <h1 class="w-100 w-lg-custom-60 mt-lg-5 ml-2" style="font-weight: 700; color: black;">
+          Get your ride right with Uber Reserve
+        </h1>
+
+
+        <p class="mt-5 font-weight-bold ml-2" style="color: black;">Choose date and time</p>
+
+
+        <div class="form-row datetime">
+          <div class="form-group col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend ml-lg-2">
+                <span class="input-group-text bg-white border-right-0">
+                  <i class="fas fa-calendar-alt " style="color: black;"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg border-left-0" placeholder="Date"
+                onclick="this.type='date'; this.click();" onblur="if(!this.value)this.type='text'">
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white border-right-0">
+                  <i class="fas fa-clock" style="color: black;"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg border-left-0" placeholder="Time"
+                onclick="this.type='time'; this.click();" onblur="if(!this.value)this.type='text'">
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <button class="btn btn-lg px-3 py-2 ml-lg-1 mb-3 w-100"
+            style="background-color: black; color:white;">Next</button>
+        </div>
+
+
+      </div>
+
+      <!-- Right box -->
+      <div class="col-lg-4 bg-light shadow rounded p-4" style="height: 300px;">
+
+        <h3>Benefits</h3>
+        <div class="benefits-container">
+          <div class="row mb-3">
+            <div class="col-2 mt-1 icons">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <div class="col benefits-text">
+              Choose your exact pickup time up to 90 days in advance.
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-2 mt-1 icons">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="col benefits-text">
+              Extra wait time included to meet your ride.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2 mt-1 icons">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="col mb-3 benefits-text">
+              Cancel at no charge up to 60 minutes in advance.
+            </div>
+          </div>
+        </div>
+        <a href="https://www.uber.com/us/en/ride/how-it-works/reserve/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec#see-prices"
+          class="text-dark" style="text-decoration: underline dotted; text-underline-offset: 7px;">See
+          terms</a>
+      </div>
+    </div>
+  </div>
+  <!-- Ride with friends seamlessly -->
+  <div class="container mt-5 mb-5">
+    <div class="row mt-5 align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img
+          src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_311,w_552/v1683576635/assets/f7/7aa380-a378-47bf-8b88-aaba1587efdd/original/landing-stops-group-rides.png"
+          alt="Ride with friends" class="img-fluid mt-5">
+      </div>
+      <div class="col-md-6 text-md-left w-100 h-100 d-flex flex-column ">
+        <h2 class="mb-4 fs-1 fw-bold " style="min-height: 30px; max-width: 350px;color:black;">Ride with friends
+          seamlessly</h2>
+        <p class="mb-4 " style="max-width: 450px;color: black;">
+          Riding with friends just got easier: set up a group ride in the Uber app, invite your friends,
+          and arrive at your destination. Friends who ride together save together.
+        </p>
+        <a href="https://www.uber.com/in/en/ride/group-rides/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"
+          class="text-decoration-underline" style="text-underline-offset: 4px;color: black;">Learn More</a>
+      </div>
+
+    </div>
+  </div>
+  <!-- Use the Uber app to help you travel your way -->
+  <h1 class="mt-5 mb-4" style="font-size: 34px; margin-left: 12%; font-weight: 700;">
+    Use the Uber app to help you travel your way
+  </h1>
+  <div class="container">
+    <div class="row">
+
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-lg-4 mb-4">
+        <div class="card travel h-100">
+          <img
+            src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_552,w_552/v1692743834/assets/54/f60161-cf6b-4401-a309-8bb196c0014c/original/U_CoastalCalifornia_White_Final-%281%29.jpg"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Ride Options</h5>
+            <p class="card-text">There’s more than one way to move with Uber, no matter where you are or where you’re
+              headed next. Search for ride options.</p>
+            <a href="https://www.uber.com/in/en/ride/ride-options/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"
+              class="btn" style="background-color: black; color: white;">Search ride options</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-lg-4 mb-4">
+        <div class="card travel h-100">
+          <img
+            src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_552,w_552/v1692743890/assets/f9/ba27c4-665c-4cca-8161-9e3f87f49994/original/Airport-rides.png"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">700+ airports</h5>
+            <p class="card-text">You can request a ride to and from most major airports. <a
+                href="https://auth.uber.com/v2/?breeze_init_req_id=538a8e78-1135-445c-9665-6152b4a9aaf8&breeze_local_zone=phx8&next_url=https%3A%2F%2Fm.uber.com%2Fgo%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26previousPathname%3D%252Fgo%252Freserve%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=X5KPPLqcAm_F8hs9HXuNPBR27HQ3yvQTSCXHMDKfHmo%3D"
+                style="color: black; text-decoration: underline; text-underline-offset: 4px;">Schedule</a> a ride to the
+              airport for one less thing to worry about.</p>
+            <a href="https://www.uber.com/in/en/airports/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="btn"
+              style="background-color: black; color: white;">Search airports</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-sm-6 col-lg-4 mb-4">
+        <div class="card travel h-100">
+          <img
+            src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_552,w_552/v1689609697/assets/b8/c39de0-6e13-485b-ba45-66511170c62a/original/SS_Commuter.jpg"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">10,000+ cities</h5>
+            <p class="card-text">The app is available in thousands of cities worldwide, so you can request a ride even
+              when you’re far from home.</p>
+            <a href="https://www.uber.com/in/en/r/cities/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="btn"
+              style="background-color: black; color: white;">Search cities</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Looking for business solutions? -->
+  <div class="container-fluid business py-5 " style="background-color: black;color: white;">
+    <div class="row justify-content-center align-items-center ml-lg-5">
+
+      <!-- Text Column -->
+      <div class="col-12 col-md-6 col-lg-5 text-white px-4 ">
+        <h1 class="font-weight-bold mb-4 h1 h3-md h1-lg ">Looking for business solutions?</h1>
+        <p class="mb-2" style="color: white;">Get information about how companies leverage
+          <a href="https://www.uber.com/in/en/business/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"
+            class="text-white " style="text-decoration: underline;">Uber for Business:</a>
+        </p>
+        <ul style="text-decoration: underline;text-underline-offset: 4px;">
+          <a
+            href="https://www.uber.com/in/en/business/solutions/rides/business-travel/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">
+            <li>Business travel</li>
+          </a>
+          <a
+            href="https://www.uber.com/in/en/business/products/central/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">
+            <li>Courtesy rides</li>
+          </a>
+          <a
+            href="https://www.uber.com/in/en/business/solutions/eats/overview/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">
+            <li>Meal programs</li>
+          </a>
+          <a
+            href="https://merchants.ubereats.com/in/en/services/uber-direct/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">
+            <li>Item delivery</li>
+          </a>
+        </ul>
+        <div class="mt-4">
+          <a href="https://www.uber.com/in/en/business/getting-started/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec"><button
+              class="btn btn-light btn-lg mr-3 rounded" style="font-size: 1rem;">Get Started</button></a>
+
+          <a href="https://www.uber.com/in/en/business/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="btn btn-link text-white text-decoration-underline" style="font-size: 1rem;">Check out our
+            solutions</a>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div class="col-12 col-md-6 col-lg-5 mt-4 mt-md-0 text-center">
+        <img
+          src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_311,w_552/v1691776332/assets/d6/48f5b6-bb5f-450e-8733-90aefecbd09e/original/U4B_Spot_U4BWebsite.jpg"
+          class="img-fluid" alt="Business Solution Image" style="max-width: 100%; height: auto;">
+      </div>
+
+    </div>
+  </div>
+  <!-- Frequently asked question -->
+  <div class="container my-5">
+    <h1 class="mb-4" style="font-weight: 500; font-size: 2.5rem;">Frequently asked questions</h1>
+    <div class="accordion" id="faqAccordion">
+
+      <!-- Item Template -->
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false" onclick="toggleAccordion(this)">
+          <span>Can I have a lost item delivered to me?</span>
+          <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="accordion-content">
+          <p>The Uber app helps provide a delivery solution that can save you a trip across town... Just choose Package
+            in the Uber app.</p>
+          <a href="https://www.uber.com/in/en/item-delivery/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-decoration-underline">Get Details</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false" onclick="toggleAccordion(this)">
+          <span>Can I rent a car using Uber?</span>
+          <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="accordion-content">
+          <p>Yes. <a href="https://www.uber.com/in/en/u/uber-rent/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-decoration-underline">Find out more</a> about how car rentals work.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false" onclick="toggleAccordion(this)">
+          <span>Can I request a ride that picks up friends in different locations?</span>
+          <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="accordion-content">
+          <p>Yes. Set up a group ride in the Uber app, invite your friends, and arrive at your destination together.</p>
+          <a href="https://www.uber.com/in/en/ride/group-rides/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-decoration-underline">Learn More</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false" onclick="toggleAccordion(this)">
+          <span>Can I request a taxi on Uber?</span>
+          <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="accordion-content">
+          <p>Uber makes it easy to get a taxi nearby in the cities where Uber Taxi is available...</p>
+          <a href="https://www.uber.com/in/en/ride/ubertaxi/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-decoration-underline">Learn about requesting a taxi</a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false" onclick="toggleAccordion(this)">
+          <span>Is there an Uber ride option for 5 people?</span>
+          <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="accordion-content">
+          <p>Request UberXL for a van or SUV that fits up to 6 people at an affordable price.</p>
+          <a href="https://www.uber.com/in/en/ride/uberxl/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-decoration-underline">Get details about UberXL</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Do more in the app -->
+  <div class="container-fluid" style="background-color:#f6f6f6; margin-top:7%;">
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h1 style="margin-left: 11%; margin-top: 4%;">Do more in the app</h1>
+      </div>
+    </div>
+
+    <div class="row justify-content-center flex-column flex-md-row">
+      <!-- Card 1 -->
+      <div class="col-12 col-md-5 mb-3 d-flex justify-content-center">
+        <div class="card w-100" style="max-width: 100%;">
+          <a href="https://www.uber.com/global/en/ride/app/?referrer=singular_click_id%3D1fdc67e4-91b9-4a35-b44a-9dfd6bfdc40a" style="color: black; text-decoration: none;">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <img
+                  src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,h_188,w_188/v1690807720/assets/a5/9986ad-0d9f-4396-8539-389bce97f579/original/Final-Download-Uber-App.png"
+                  alt="..." class="img-fluid ml-3 " style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div class="col-8">
+                <div class="card-body d-flex flex-column justify-content-between" style="padding: 15px;">
+                  <h4 class="card-title font-weight-bold text-center mt-lg-5">Download the Uber app
+                    <span class="float-right"><i class="fa-solid fa-arrow-right"></i></span>
+                  </h4>
+                  <p class="card-text text-center">Scan to download</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-5 mb-3 d-flex justify-content-center">
+        <div class="card w-100" style="max-width: 100%;">
+          <a href="https://auth.uber.com/v2/?breeze_init_req_id=2dbe6927-1956-423a-8d41-2660864c78a1&breeze_local_zone=phx6&next_url=https%3A%2F%2Fm.uber.com%2Flogin-redirect%2F%3Fmarketing_vistor_id%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26previousPath%3D%252Flooking%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=nEYazM2gqCBbqv5HV3bMPaBTx4TqwlMNhFDIbCHx7Vs%3D" style="color: black; text-decoration: none;">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <img
+                  src="https://www.uber-assets.com/image/upload/q_auto:eco,c_fill,h_188,w_188/v1690810558/assets/e2/4f1914-1e23-4896-ad77-22e88c37c2f9/original/Rider-App-Icon_iOS.svg"
+                  alt="..." class="img-fluid ml-3 " style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div class="col-8">
+                <div class="card-body d-flex flex-column justify-content-between" style="padding: 15px;">
+                  <h4 class="card-title font-weight-bold text-center mt-lg-5">Sign up to ride
+                    <span class="float-right"><i class="fa-solid fa-arrow-right"></i></span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Certain features -->
+  <div class="container">
+    <div class="row">
+      <div class="col py-3 py-md-0" style="margin-top: 5%; margin-bottom: 5%;">
+        <p>Certain requirements and features vary by country, region, and city.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <div class="container-fluid text-white p-0 p-md-5" style="background-color: black;color: white;">
+    <!-- Top Uber link -->
+    <div class="row m-0 mx-md-5 p-md-5">
+      <div class="col-md-6 col-lg-4">
+        <a href="https://www.uber.com/in/en/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">
+          <h3 class="fw-normal mb-3">Uber</h3>
+        </a>
+        <a href="https://help.uber.com/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none" >
+          <p style="color: white;">Visit Help Center</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Link sections --> 
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-0 mx-md-5 p-md-5">
+      <div class="col mb-4">
+        <h5 class="mb-3">Company</h5>
+        <p><a href="https://www.uber.com/in/en/about/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">About Us</a></p>
+        <p><a href="https://www.uber.com/in/en/about/uber-offerings/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Our offerings</a></p>
+        <p><a href="https://www.uber.com/newsroom/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Newsroom</a></p>
+        <p><a href="https://investor.uber.com/home/default.aspx" class="text-white text-decoration-none">Investors</a></p>
+        <p><a href="https://www.uber.com/en-IN/blog/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Blog</a></p>
+        <p><a href="https://www.uber.com/in/en/careers/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Careers</a></p>
+      </div>
+      <div class="col mb-4">
+        <h5 class="mb-3">Products</h5>
+        <p><a href="https://www.uber.com/in/en/ride/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Ride</a></p>
+        <p><a href="https://www.uber.com/in/en/drive/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Drive</a></p>
+        <p><a href="https://www.uber.com/in/en/deliver/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Deliver</a></p>
+        <p><a href="https://www.ubereats.com/?marketing_vistor_id=1151e56c-3956-4d4e-bf9a-5af7a796dad3&mod=feedLocationRequestModal&modctx=%257B%2522mode%2522%253A%2522REQUEST%2522%257D&ps=1" class="text-white text-decoration-none">Eat</a></p>
+        <p><a href="https://www.uber.com/in/en/business/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Uber for Business</a></p>
+        <p><a href="https://www.uberfreight.com/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Uber Freight</a></p>
+        <p><a href="https://www.uber.com/in/en/gift-cards/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Gift cards</a></p>
+        <p><a href="https://www.uberhealth.com/in/en/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Uber Health</a></p>
+      </div>
+      <div class="col mb-4">
+        <h5 class="mb-3">Global Citizenship</h5>
+        <p><a href="https://www.uber.com/in/en/safety/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Safety</a></p>
+        <p><a href="https://www.uber.com/in/en/about/sustainability/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Sustainability</a></p>
+      </div>
+      <div class="col mb-4">
+        <h5 class="mb-3">Travel</h5>
+        <p><a href="https://auth.uber.com/v2/?breeze_init_req_id=c25e5288-efda-43b2-a9ff-126d6fdd0c1f&breeze_local_zone=phx5&next_url=https%3A%2F%2Fm.uber.com%2Fgo%2Flogin-redirect%2F%3F_fallback_redirect%3Dhttp%253A%252F%252Fm.uber.com%252Freserve%26mvid%3D1151e56c-3956-4d4e-bf9a-5af7a796dad3%26pcn%3Dubercom-footer%26previousPathname%3D%252Fgo%252Freserve%26referrer%3Dsingular_click_id%253D2bfe7b91-b009-4a6d-be04-3e7286e7207d%26sl_id%3Do42y%26uclick_id%3D9a88d54b-4616-4645-9634-6485d3baa2ec&state=t3PS7vltGGDIBT-U82zPF5tMLrGjoGG2XueAW12Uz7I%3D" class="text-white text-decoration-none">Reserve</a></p>
+        <p><a href="https://www.uber.com/in/en/airports/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Airports</a></p>
+        <p><a href="https://www.uber.com/in/en/r/cities/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" class="text-white text-decoration-none">Cities</a></p>
+      </div>
+    </div>
+
+    <!-- Social Media + Language Row -->
+    <div class="row justify-content-between align-items-center px-md-5 px-3 mt-4 footer">
+      <div class="col-12 col-md-6 d-flex justify-content-start flex-wrap gap-2 mb-3">
+        <a href="https://www.facebook.com/uber?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" style="text-decoration: none;"><button><i class="fa-brands fa-square-facebook"></i></button></a>
+        <a href="https://x.com/uber?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" style="text-decoration: none;"><button><i class="fa-brands fa-x-twitter"></i></button></a>
+        <a href="https://www.youtube.com/channel/UCgnxoUwDmmyzeigmmcf0hZA" style="text-decoration: none;"><button><i class="fa-brands fa-youtube"></i></button></a>
+        <a href="https://www.linkedin.com/company/uber-com/" style="text-decoration: none;"><button><i class="fa-brands fa-linkedin"></i></button></a>
+        <a href="https://www.instagram.com/uber/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec" style="text-decoration: none;"><button><i class="fa-brands fa-instagram"></i></button></a>
+      </div>
+
+      <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center flex-wrap gap-2 english">
+        <a href="#" class="btn"><i class="fa-solid fa-globe"></i> English</a>
+        <a href="#" class="btn"><i class="fa-solid fa-location-dot"></i> Vijayawada</a>
+      </div>
+    </div>
+
+    <!-- App Store buttons -->
+    <div class="row mt-4 px-md-5 px-3">
+      <div class="col d-flex flex-column flex-md-row align-items-center gap-3">
+        <a href="https://play.google.com/store/apps/details?gl=US&hl=en_US&id=com.ubercab&referrer=singular_click_id%3Dcacbd735-9363-4276-97af-12878203edff&pli=1"><img
+            src="https://th.bing.com/th/id/R.1aaab5cf11fa0e87e7d696be74112ea4?rik=FTjhtyfWyA4pqw&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fget-it-on-google-play-png-an-error-occurred-1000.png&ehk=Ut5PLxQ2CsTLEzbWbrH6sYZPGyRQxIq1GswZDtynZY4%3d&risl=&pid=ImgRaw&r=0"
+            class="img-fluid" style="max-width: 130px;"></a>
+        <a href="https://apps.apple.com/us/app/uber-request-a-ride/id368677368?referrer=singular_click_id%3D268d6e86-9545-4d7e-af71-0b2917418722"><img
+            src="https://www.freepngdesign.com/content/uploads/images/download-on-the-app-store-apple-2132.png"
+            class="img-fluid" style="max-width: 130px;"></a>
+      </div>
+    </div>
+
+    <!-- Privacy & Legal -->
+    <div class="row mt-4 px-md-5 px-3 text-secondary small text-center text-md-start privacy">
+      <div class="col-12 col-md-4 mb-2">&copy; 2025 Uber Technologies Inc.</div>
+      <div class="col-12 col-md-8 d-flex flex-wrap justify-content-md-end justify-content-center gap-3">
+        <a href="https://www.uber.com/global/en/privacy-notice-riders-order-recipients/">Privacy </a>
+        <a href="https://www.uber.com/in/en/about/accessibility/?uclick_id=9a88d54b-4616-4645-9634-6485d3baa2ec">&nbsp; &nbsp;Accessibility</a>
+        <a href="https://www.uber.com/legal/en/document/?name=general-terms-of-use&country=india&lang=en">&nbsp; &nbsp;Terms</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <script>
+    const allHeaders = document.querySelectorAll(".accordion-button");
+
+    function toggleAccordion(button) {
+      const content = button.nextElementSibling;
+      const arrow = button.querySelector(".arrow");
+
+      const isOpen = content.classList.contains("show");
+      document.querySelectorAll(".accordion-content").forEach(el => el.classList.remove("show"));
+      document.querySelectorAll(".accordion-button").forEach(btn => {
+        btn.setAttribute("aria-expanded", "false");
+        btn.querySelector(".arrow").classList.remove("rotate");
+      });
+
+      if (!isOpen) {
+        content.classList.add("show");
+        button.setAttribute("aria-expanded", "true");
+        arrow.classList.add("rotate");
+      }
+    }
+
+    // Arrow key navigation
+    document.addEventListener("keydown", e => {
+      const active = document.activeElement;
+      if (active.classList.contains("accordion-button")) {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          const next = active.parentElement.nextElementSibling?.querySelector(".accordion-button");
+          if (next) next.focus();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          const prev = active.parentElement.previousElementSibling?.querySelector(".accordion-button");
+          if (prev) prev.focus();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
